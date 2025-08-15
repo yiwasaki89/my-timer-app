@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会議用タイマー</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>会議用タイマー</h1>
+            <button id="fullscreen-btn" class="fullscreen-btn" title="フルスクリーン切り替え (F11)">
+                <span class="fullscreen-icon">⛶</span>
+            </button>
+        </div>
+        
+        <!-- タブナビゲーション -->
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="clock">現在時刻</button>
+            <button class="tab-btn" data-tab="countdown">カウントダウン</button>
+            <button class="tab-btn" data-tab="countup">カウントアップ</button>
+        </div>
+
+        <!-- 現在時刻タブ -->
+        <div id="clock" class="tab-content active">
+            <div class="time-display">
+                <div id="current-time" class="large-time">00:00:00</div>
+                <div id="current-date" class="date">2025年8月10日</div>
+            </div>
+        </div>
+
+        <!-- カウントダウンタイマータブ -->
+        <div id="countdown" class="tab-content">
+            <div class="timer-controls">
+                <div class="input-group">
+                    <label>分:</label>
+                    <input type="number" id="countdown-minutes" min="0" max="59" value="5">
+                </div>
+                <div class="input-group">
+                    <label>秒:</label>
+                    <input type="number" id="countdown-seconds" min="0" max="59" value="0">
+                </div>
+            </div>
+            <div class="time-display">
+                <div id="countdown-display" class="large-time">05:00</div>
+            </div>
+            <div class="button-group">
+                <button id="countdown-start" class="btn btn-primary">開始</button>
+                <button id="countdown-pause" class="btn btn-secondary">一時停止</button>
+                <button id="countdown-reset" class="btn btn-danger">リセット</button>
+            </div>
+            <div id="countdown-status" class="status"></div>
+        </div>
+
+        <!-- カウントアップタイマータブ -->
+        <div id="countup" class="tab-content">
+            <div class="time-display">
+                <div id="countup-display" class="large-time">00:00</div>
+            </div>
+            <div class="button-group">
+                <button id="countup-start" class="btn btn-primary">開始</button>
+                <button id="countup-pause" class="btn btn-secondary">一時停止</button>
+                <button id="countup-reset" class="btn btn-danger">リセット</button>
+            </div>
+            <div id="countup-status" class="status"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
